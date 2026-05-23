@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mayank Bhaskar — AI Research & Engineering</title>
+  <meta name="description" content="Senior ML Engineer & AI Researcher. 14+ years building production AI systems. ARC Prize competitor, Kaggle Expert, Cohere Labs Lead.">
+  <meta property="og:title" content="Mayank Bhaskar — AI Research & Engineering">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://cataluna84.github.io">
+  <meta property="og:image" content="https://cataluna84.github.io/ProfilePic.png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="bg-grid"></div>
+  <div class="bg-glow bg-glow-1"></div>
+  <div class="bg-glow bg-glow-2"></div>
+
+  <!-- NAV -->
+  <nav class="nav" id="nav">
+    <div class="container nav-inner">
+      <a href="#" class="nav-logo">mayank<span>.bhaskar</span></a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#arc-agi">ARC-AGI</a></li>
+        <li><a href="#kaggle">Kaggle</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#community">Community</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <button class="nav-mobile-toggle" id="navToggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero section" id="hero">
+    <div class="container hero-content">
+      <div class="hero-badge glass"><span class="pulse"></span> Open to opportunities</div>
+      <div class="hero-avatar">
+        <img src="ProfilePic.png" alt="Mayank Bhaskar" class="hero-avatar-img">
+      </div>
+      <h1 class="hero-name">Mayank <span class="gradient-text">Bhaskar</span></h1>
+      <p class="hero-title">Senior ML Engineer & AI Researcher — 14+ years building production AI systems, from on-device computer vision to LLM compression and multimodal intelligence.</p>
+      <div class="hero-stats">
+        <div class="hero-stat"><span class="hero-stat-value">14+</span><span class="hero-stat-label">Years Experience</span></div>
+        <div class="hero-stat"><span class="hero-stat-value">40+</span><span class="hero-stat-label">GitHub Repos</span></div>
+        <div class="hero-stat"><span class="hero-stat-value">21</span><span class="hero-stat-label">Kaggle Competitions</span></div>
+        <div class="hero-stat"><span class="hero-stat-value">14</span><span class="hero-stat-label">HF Models</span></div>
+      </div>
+      <div class="hero-actions">
+        <a href="#projects" class="btn btn-primary">View Projects ↓</a>
+        <a href="https://github.com/cataluna84" target="_blank" class="btn btn-secondary">GitHub</a>
+        <a href="https://www.linkedin.com/in/cataluna84/" target="_blank" class="btn btn-secondary">LinkedIn</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="section" id="about">
+    <div class="container">
+      <span class="section-label">About</span>
+      <h2 class="section-title reveal">Building the next generation of <span class="gradient-text">intelligent systems</span></h2>
+      <div class="about-grid reveal">
+        <div class="about-text">
+          <p>I'm the <strong>Founder & CEO of OM Enterprises — AI Research & Engineering Labs</strong>, focused on cutting-edge ML research and enterprise AI services. My mission: build ubiquitous, interactive intelligence that runs on multimodal data with high throughput and low latency.</p>
+          <p>My research spans <strong>Computer Vision</strong>, <strong>State Space Models</strong>, <strong>Multimodal Models</strong>, <strong>Reinforcement Learning</strong>, and <strong>LLM compression</strong> — with applied experience deploying models on-device (iOS), on edge (DeepStream SDK), and at scale (CUDA/Triton).</p>
+          <p>I'm a <strong>TWiML Contributor Lead</strong> (5+ years), <strong>Cohere Labs Community Lead & Researcher</strong>, <strong>MLT Tokyo contributor</strong>, and core organizer of <strong>Lucknow AI Labs</strong>. I've attended ICLR, ICML, CVPR & NeurIPS.</p>
+        </div>
+        <div class="about-highlights">
+          <div class="highlight-card glass"><div class="icon">🏆</div><h4>ARC Prize 24th</h4><p>Out of 1,427 teams (2024)</p></div>
+          <div class="highlight-card glass"><div class="icon">🥇</div><h4>HF JAX 3rd Place</h4><p>CLIP-RSICD fine-tuning</p></div>
+          <div class="highlight-card glass"><div class="icon">📊</div><h4>Kaggle Expert</h4><p>Rank 1,532 / 202K</p></div>
+          <div class="highlight-card glass"><div class="icon">🔬</div><h4>14 HF Models</h4><p>NER, Text Gen, Image Gen</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURED PROJECTS -->
+  <section class="section" id="projects">
+    <div class="container">
+      <span class="section-label">Featured Projects</span>
+      <h2 class="section-title reveal">Flagship <span class="gradient-text">research & engineering</span></h2>
+      <p class="section-subtitle reveal">Production-grade ML systems with reproducible pipelines, W&B instrumentation, and benchmark results.</p>
+      <div class="projects-grid reveal" id="projectsGrid"></div>
+    </div>
+  </section>
+
+  <!-- ARC-AGI -->
+  <section class="section" id="arc-agi">
+    <div class="container">
+      <span class="section-label">ARC-AGI Series</span>
+      <h2 class="section-title reveal">Solving <span class="gradient-text">novel reasoning</span> at scale</h2>
+      <p class="section-subtitle reveal">Three years of competing in the ARC Prize — the benchmark for measuring AI's ability to learn new tasks from few examples.</p>
+      <div class="research-grid reveal" id="arcGrid"></div>
+    </div>
+  </section>
+
+  <!-- KAGGLE -->
+  <section class="section" id="kaggle">
+    <div class="container">
+      <span class="section-label">Kaggle Competitions</span>
+      <h2 class="section-title reveal">Competitions <span class="gradient-text">Expert</span> — Rank 1,532 / 202,876</h2>
+      <p class="section-subtitle reveal">1 Silver + 3 Bronze medals across 21+ completed competitions spanning CV, NLP, medical AI, and reasoning.</p>
+      <div id="kaggleTable" class="reveal"></div>
+    </div>
+  </section>
+
+  <!-- GITHUB PROJECTS -->
+  <section class="section" id="github-projects">
+    <div class="container">
+      <span class="section-label">GitHub Portfolio</span>
+      <h2 class="section-title reveal">Open Source <span class="gradient-text">Projects</span></h2>
+      <div class="projects-grid reveal" id="githubGrid"></div>
+    </div>
+  </section>
+
+  <!-- CONTRIBUTIONS -->
+  <section class="section" id="contributions">
+    <div class="container">
+      <span class="section-label">Open Source Contributions</span>
+      <h2 class="section-title reveal">Contributing to the <span class="gradient-text">ecosystem</span></h2>
+      <div class="community-grid reveal" id="contribGrid"></div>
+    </div>
+  </section>
+
+  <!-- HUGGINGFACE -->
+  <section class="section" id="huggingface">
+    <div class="container">
+      <span class="section-label">HuggingFace</span>
+      <h2 class="section-title reveal">Models & <span class="gradient-text">Publications</span></h2>
+      <div class="research-grid reveal" id="hfGrid"></div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section class="section" id="experience">
+    <div class="container">
+      <span class="section-label">Experience</span>
+      <h2 class="section-title reveal">Career <span class="gradient-text">Timeline</span></h2>
+      <div class="timeline reveal" id="timeline"></div>
+    </div>
+  </section>
+
+  <!-- COMMUNITY -->
+  <section class="section" id="community">
+    <div class="container">
+      <span class="section-label">Community & Leadership</span>
+      <h2 class="section-title reveal">Building <span class="gradient-text">communities</span></h2>
+      <div class="community-grid reveal" id="communityGrid"></div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section class="section" id="skills">
+    <div class="container">
+      <span class="section-label">Technical Skills</span>
+      <h2 class="section-title reveal">Tools & <span class="gradient-text">Technologies</span></h2>
+      <div class="skills-wrapper reveal" id="skillsWrapper"></div>
+    </div>
+  </section>
+
+  <!-- BLOG -->
+  <section class="section" id="blog">
+    <div class="container">
+      <span class="section-label">Blog</span>
+      <h2 class="section-title reveal">Writing & <span class="gradient-text">Insights</span></h2>
+      <div class="research-grid reveal" id="blogGrid"></div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="section" id="contact">
+    <div class="container">
+      <div class="contact-content reveal">
+        <span class="section-label" style="justify-content:center">Get in Touch</span>
+        <h2 class="section-title" style="text-align:center">Let's build something <span class="gradient-text">extraordinary</span></h2>
+        <p class="section-subtitle" style="margin:0 auto;text-align:center">Open to Senior ML Engineer, Research Engineer, CV Engineer, and Senior SDE roles.</p>
+        <div class="contact-links">
+          <a href="mailto:mayank@cataluna84.com" class="contact-link glass">📧 Email</a>
+          <a href="https://github.com/cataluna84" target="_blank" class="contact-link glass">🐙 GitHub</a>
+          <a href="https://www.linkedin.com/in/cataluna84/" target="_blank" class="contact-link glass">💼 LinkedIn</a>
+          <a href="https://www.kaggle.com/cataluna84" target="_blank" class="contact-link glass">📊 Kaggle</a>
+          <a href="https://huggingface.co/cataluna84" target="_blank" class="contact-link glass">🤗 HuggingFace</a>
+          <a href="https://x.com/cataluna84" target="_blank" class="contact-link glass">𝕏 Twitter/X</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <p>© 2026 Mayank Bhaskar. Built with ❤️ and vanilla HTML/CSS/JS.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

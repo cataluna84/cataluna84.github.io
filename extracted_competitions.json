@@ -1,0 +1,37 @@
+[
+  {
+    "name": "CIFAR-10 - Object Recognition in Images",
+    "placement": "N/A",
+    "type": "Playground",
+    "time": "10/1",
+    "medal": ""
+  },
+  {
+    "name": "Deepfake Detection Challenge",
+    "placement": "N/A",
+    "type": "Featured",
+    "time": "04/2",
+    "medal": ""
+  },
+  {
+    "name": "COVID19 Global Forecasting (Week 2)",
+    "placement": "N/A",
+    "type": "Research",
+    "time": "04/0",
+    "medal": ""
+  },
+  {
+    "name": "COVID19 Global Forecasting (Week 4)",
+    "placement": "N/A",
+    "type": "Research",
+    "time": "04/1",
+    "medal": ""
+  },
+  {
+    "name": "AI Against Modern Slavery - TWIML Hackathon",
+    "placement": "N/A",
+    "type": "Community",
+    "time": "10/2",
+    "medal": ""
+  }
+]
