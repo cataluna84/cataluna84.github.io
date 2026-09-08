@@ -53,6 +53,9 @@ jobs:
       - name: Open or update the reminder issue
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # This job does not check out the repository, so gh cannot infer the
+          # target from a git remote.
+          GH_REPO: ${{ github.repository }}
         run: |
           gh label create content-refresh --color 0e8a16 \
             --description "Recurring portfolio content refresh" --force || true
