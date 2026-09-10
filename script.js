@@ -3,14 +3,27 @@
 const portfolioData = {
   tier1Projects: [
     {
+      id: "nanogpt-jax",
+      title: "NanoGPT with JAX",
+      description: "Pure-JAX implementation and research codebase for scalable LLM architectures, spanning NanoGPT-style training and extensions for Cloud TPU workflows. Includes launch tooling for long-horizon sequence-to-sequence translation and language-modeling runs.",
+      tags: ["JAX", "Large Language Models", "Cloud TPU", "Distributed Training"],
+      links: [
+        { url: "https://github.com/cataluna84/llm-architectures", icon: "🐙", label: "GitHub" },
+        { url: "https://www.youtube.com/watch?v=iGJNnUMGHJk", icon: "🎥", label: "RAW Worklog Part 51" },
+        { url: "https://www.youtube.com/watch?v=5c03fmryQoc", icon: "🎬", label: "RAW Worklog Part 52" }
+      ],
+      metrics: "TPU v5e-64 & v6e-16"
+    },
+    {
       id: "lid",
       title: "LID — Layer-Wise Multilingual Language ID",
-      description: "Layer-wise dynamics of multilingual language identification (67 languages) in compact foundation models. Features training, layer-wise inference, and optimization-strategy benchmarks on H100 with W&B logging.",
-      tags: ["PyTorch", "Mechanistic Interpretability", "LoRA", "HuggingFace"],
+      description: "Unified mechanistic-interpretability and systems study of how language identification emerges through depth in compact foundation models (~0.6B–8B), across Tiny Aya, Gemma 4, Qwen 3 and Qwen 3.5. Covers 67 languages with code-mixing and transliteration stress tests, per-layer quantization, circuit-preserving pruning, script-first early exit, and MatFormer elastic-depth inference.",
+      tags: ["PyTorch", "Mechanistic Interpretability", "Model Compression", "Quantization", "Pruning"],
       links: [
-        { url: "https://github.com/cataluna84/lid", icon: "🐙", label: "GitHub" }
+        { url: "https://github.com/cataluna84/lid", icon: "🐙", label: "GitHub" },
+        { url: "https://github.com/cataluna84/lid/blob/main/docs/paperback.md", icon: "📄", label: "Project Paperback" }
       ],
-      metrics: "Macro F1: 0.97+"
+      metrics: "30–50% faster inference, no F1 loss"
     },
     {
       id: "arc-agi-3",
@@ -33,14 +46,28 @@ const portfolioData = {
       metrics: "Extensive Model Suite"
     },
     {
-      id: "tiny-aya-translation",
-      title: "Tiny Aya Simultaneous Translation",
-      description: "End-to-end simultaneous speech-to-text translation pipeline. Includes continuous integration of chunked audio processing, sequence modeling, and low-latency decoding for streaming architectures.",
-      tags: ["Speech", "Streaming", "Real-time", "CUDA"],
+      id: "vision-interpretability",
+      title: "Vision Interpretability Project",
+      description: "Community-driven effort to reproduce, consolidate and extend core visualizations from the Circuits thread for InceptionV1 — activation maximization, dataset-driven neuron exemplars, curve-detector visualizations and circuit discovery — as one well-documented open-source codebase with reusable notebooks and reproducible pipelines.",
+      tags: ["Computer Vision", "Mechanistic Interpretability", "InceptionV1", "Applied ML"],
       links: [
-        { url: "https://github.com/tiny-aya-simulatenous-translation", icon: "🐙", label: "GitHub Org" }
+        { url: "https://github.com/Cohere-Labs-Community/Vision-Interpretability", icon: "🐙", label: "GitHub" },
+        { url: "https://huggingface.co/spaces/akankshanc/inception-v1-microscope", icon: "🤗", label: "InceptionV1 Microscope Space" },
+        { url: "https://www.notion.so/Vision-Interpretability-Project-30edf04eb8358007b59ed8fea617b18e", icon: "📓", label: "Notion" }
       ],
-      metrics: "Low-Latency Streaming"
+      metrics: "Circuits Thread Reproduction"
+    },
+    {
+      id: "tiny-aya-translation",
+      title: "TinyAya: Simultaneous Translation",
+      description: "Turkish↔Hindi speech-to-speech translation for an extremely low-resource language pair. LoRA-adapts a Cohere2 backbone to drive a frozen Moshi depth decoder over Mimi audio codes, with a parallel text \"inner-monologue\" stream. Built the end-to-end corpus, synthetic-speech, audio-token, training and checkpoint pipeline; trained 76,250 steps (2.07 epochs) on a Cloud TPU v6e-16.",
+      tags: ["Speech Translation", "Multilingual LLMs", "LoRA", "TPU Training"],
+      links: [
+        { url: "https://github.com/tiny-aya-simultaneous-translation", icon: "🐙", label: "GitHub Org" },
+        { url: "https://cohere-labs-community.github.io/blog/2026/adapting-moshi-low-resource-speech-translation/", icon: "📝", label: "Cohere Labs Blog" },
+        { url: "https://huggingface.co/tiny-aya-translate", icon: "🤗", label: "HF Dataset & Weights" }
+      ],
+      metrics: "Val composite 2.8199 @ step 76k"
     },
     {
       id: "codec-finetuning",
@@ -56,21 +83,24 @@ const portfolioData = {
       id: "tiny-aya-under-hood",
       title: "Tiny Aya Under the Hood",
       description: "Deep-dive mechanistic interpretability and architectural breakdown of the Tiny Aya model. Analyzes attention heads, MLP layers, and cross-lingual transfer mechanisms.",
-      tags: ["Mechanistic Interpretability", "LLMs", "Analysis"],
+      tags: ["Mechanistic Interpretability", "Multilingual Representation Learning", "CKA"],
       links: [
-        { url: "https://github.com/rsk2327/Tiny-Aya-Under-the-hood", icon: "🐙", label: "GitHub" }
+        { url: "https://github.com/rsk2327/Tiny-Aya-Under-the-hood", icon: "🐙", label: "GitHub" },
+        { url: "https://github.com/rsk2327/Tiny-Aya-Under-the-hood/blob/main/analysis/cross_lingual_embedding_alignment/paperback.md", icon: "📄", label: "Research Paperback" }
       ],
-      metrics: "Deep Architectural Analysis"
+      metrics: "3.35B params, 36 layers"
     },
     {
       id: "cohere-misalignment",
-      title: "Crosslingual Emergent Misalignment",
-      description: "Research conducted with Cohere Labs investigating how safety guardrails degrade or misalign when translating prompts across high and low-resource languages.",
-      tags: ["AI Safety", "Cohere", "Crosslingual", "Research"],
+      title: "Cross-Lingual Emergent Misalignment",
+      description: "Does harmful behavior induced in one language transfer through shared representations? Fine-tunes the 3.35B-parameter Tiny Aya family on insecure English text, then measures emergent-misalignment transfer across English, Portuguese, Turkish, Hindi, Marathi, Urdu, Hausa and Yoruba. Finds evidence of a shared internal misalignment direction concentrated in a middle band of layers, confirmed by activation steering using a direction extracted from English data alone.",
+      tags: ["AI Safety", "Mechanistic Interpretability", "Multilingual LLMs", "Representation Steering"],
       links: [
-        { url: "https://github.com/Cohere-Labs-Community/crosslingual-emergent-misalignment", icon: "🐙", label: "GitHub" }
+        { url: "https://github.com/Cohere-Labs-Community/crosslingual-emergent-misalignment", icon: "🐙", label: "GitHub" },
+        { url: "https://github.com/Cohere-Labs-Community/crosslingual-emergent-misalignment/blob/main/experimental/mechanistic_analysis/paper/paperback.md", icon: "📄", label: "Mechanistic Analysis Paperback" },
+        { url: "https://openreview.net/forum?id=JjtZl9jTSW", icon: "🎓", label: "ICML 2026 Workshop Poster" }
       ],
-      metrics: "Multilingual Safety Benchmark"
+      metrics: "ICML 2026 MechInterp Workshop"
     },
     {
       id: "worldmodels",
@@ -95,12 +125,12 @@ const portfolioData = {
     {
       id: "football-ntap",
       title: "Football Tactical Next-Action Prediction",
-      description: "Shipd Project Eris. 4-component ensemble with task-coupling: DeBERTa-v3, cross-encoder MCQ scorer, zero-shot NLI, and a MoE fusion (Qwen3.5-35B + Gemma-4-26B) with PRM rerank.",
-      tags: ["NLP", "MoE", "Ensemble", "W&B"],
+      description: "Tactical next-action and reasoning prediction over 348 football match contexts from Shipd Project Eris. Task-coupled four-component ensemble: DeBERTa-v3 base and large, a cross-encoder multiple-choice scorer, zero-shot NLI, and three-pass MoE fusion (Qwen3.5-35B-A3B-Int4 + Gemma-4-26B-A4B-it) with process-reward-model reranking, instrumented in W&B.",
+      tags: ["NLP", "Model Ensembling", "Sports Analytics", "LLM Reasoning", "W&B"],
       links: [
         { url: "https://github.com/cataluna84/football-ntap", icon: "🐙", label: "GitHub" }
       ],
-      metrics: "Combined Score: 0.65+"
+      metrics: "Target: 0.80 combined score"
     }
   ],
 
@@ -128,33 +158,43 @@ const portfolioData = {
     }
   ],
 
+  // Placements, years and medals mirror mayank_bhaskar_projects.md, which is the
+  // source of truth. `slug` is the Kaggle competition slug: it links each row and
+  // gives scripts/check_content_sync.py an exact key to join on, so a display-name
+  // tweak here can never silently break the drift check.
   kaggleCompetitions: [
-    { name: "ARC Prize 2024", placement: "24/1427", type: "Featured", time: "2024", medal: "Silver" },
-    { name: "Dog Breed Identification", placement: "53/72", type: "Community", time: "2023", medal: "" },
-    { name: "ARC Prize 2025", placement: "87/1455", type: "Featured", time: "2025", medal: "Bronze" },
-    { name: "Google Universal Image Embedding", placement: "213/1022", type: "Research", time: "2023", medal: "" },
-    { name: "Feedback Prize - English Language Learning", placement: "245/2654", type: "Featured", time: "2023", medal: "Bronze" },
-    { name: "Vesuvius Challenge - Ink Detection", placement: "260/1249", type: "Featured", time: "2023", medal: "Bronze" },
-    { name: "RSNA Screening Mammography", placement: "345/1687", type: "Featured", time: "2023", medal: "" },
-    { name: "Feedback Prize - Effective Arguments", placement: "373/1557", type: "Featured", time: "2022", medal: "" },
-    { name: "Make Data Count", placement: "393/1282", type: "Research", time: "2025", medal: "" },
-    { name: "Optiver - Trading at the Close", placement: "434/4436", type: "Featured", time: "2024", medal: "" },
-    { name: "Google - Isolated Sign Language", placement: "473/1165", type: "Research", time: "2023", medal: "" },
-    { name: "UM - Game-Playing Strength MCTS", placement: "485/1608", type: "Research", time: "2025", medal: "" },
-    { name: "Google - ASL Fingerspelling", placement: "572/1314", type: "Research", time: "2023", medal: "" },
-    { name: "Automated Essay Scoring 2.0", placement: "717/2706", type: "Featured", time: "2024", medal: "" },
-    { name: "CMI - Detect Behavior with Sensor Data", placement: "723/2657", type: "Featured", time: "2025", medal: "" },
-    { name: "Kaggle - LLM Science Exam", placement: "730/2664", type: "Featured", time: "2024", medal: "" },
-    { name: "HMS - Harmful Brain Activity", placement: "761/2767", type: "Research", time: "2024", medal: "" },
-    { name: "LLM - Detect AI Generated Text", placement: "931/4358", type: "Featured", time: "2024", medal: "" },
-    { name: "AI Mathematical Olympiad", placement: "1068/2212", type: "Featured", time: "2025", medal: "" },
-    { name: "Parkinson's Freezing of Gait", placement: "1069/1379", type: "Research", time: "2023", medal: "" }
+    { name: "ARC Prize 2024", slug: "arc-prize-2024", placement: "24/1427", type: "Featured", time: "2024", medal: "Silver" },
+    { name: "Dog Breed Identification", slug: "dog-breed-identification-mlbootcamp", placement: "53/72", type: "Invitation Only", time: "2022", medal: "" },
+    { name: "Email Spam Classification", slug: "email-spam-classify", placement: "69/113", type: "Invitation Only", time: "2022", medal: "" },
+    { name: "ARC Prize 2025", slug: "arc-prize-2025", placement: "87/1455", type: "Featured", time: "2025", medal: "Bronze" },
+    { name: "Google Universal Image Embedding", slug: "google-universal-image-embedding", placement: "213/1022", type: "Research", time: "2022", medal: "" },
+    { name: "Feedback Prize - English Language Learning", slug: "feedback-prize-english-language-learning", placement: "245/2654", type: "Featured", time: "2022", medal: "Bronze" },
+    { name: "Vesuvius Challenge - Ink Detection", slug: "vesuvius-challenge-ink-detection", placement: "260/1249", type: "Featured", time: "2023", medal: "" },
+    { name: "RSNA Screening Mammography", slug: "rsna-breast-cancer-detection", placement: "345/1687", type: "Featured", time: "2023", medal: "" },
+    { name: "Feedback Prize - Effective Arguments", slug: "feedback-prize-effectiveness", placement: "373/1557", type: "Featured", time: "2022", medal: "" },
+    { name: "Make Data Count", slug: "make-data-count-finding-data-references", placement: "393/1282", type: "Research", time: "2024", medal: "" },
+    { name: "Optiver - Trading at the Close", slug: "optiver-trading-at-the-close", placement: "434/4436", type: "Featured", time: "2023", medal: "Bronze" },
+    { name: "Google - Isolated Sign Language", slug: "asl-signs", placement: "473/1165", type: "Research", time: "2023", medal: "" },
+    { name: "UM - Game-Playing Strength MCTS", slug: "um-game-playing-strength-of-mcts-variants", placement: "485/1608", type: "Research", time: "2024", medal: "" },
+    { name: "Google - ASL Fingerspelling", slug: "asl-fingerspelling", placement: "572/1314", type: "Research", time: "2023", medal: "" },
+    { name: "Automated Essay Scoring 2.0", slug: "learning-agency-lab-automated-essay-scoring-2", placement: "717/2706", type: "Featured", time: "2024", medal: "" },
+    { name: "CMI - Detect Behavior with Sensor Data", slug: "cmi-detect-behavior-with-sensor-data", placement: "723/2657", type: "Featured", time: "2024", medal: "" },
+    { name: "Kaggle - LLM Science Exam", slug: "kaggle-llm-science-exam", placement: "730/2664", type: "Featured", time: "2023", medal: "" },
+    { name: "HMS - Harmful Brain Activity", slug: "hms-harmful-brain-activity-classification", placement: "761/2767", type: "Research", time: "2024", medal: "" },
+    { name: "LLM - Detect AI Generated Text", slug: "llm-detect-ai-generated-text", placement: "931/4358", type: "Featured", time: "2023", medal: "" },
+    { name: "AI Mathematical Olympiad", slug: "ai-mathematical-olympiad-progress-prize-2", placement: "1068/2212", type: "Featured", time: "2024", medal: "" },
+    { name: "Parkinson's Freezing of Gait", slug: "tlvmc-parkinsons-freezing-gait-prediction", placement: "1069/1379", type: "Research", time: "2023", medal: "" }
   ],
 
   githubProjects: [
     { title: "Generative_Deep_Learning", desc: "Generative Modeling notebooks covering GANs, Diffusion, and VAEs.", tags: ["Jupyter", "GANs"], url: "https://github.com/cataluna84/Generative_Deep_Learning" },
     { title: "S5", desc: "Simplified State Space Layers for Sequence Modeling.", tags: ["SSM", "Sequence Modeling"], url: "https://github.com/cataluna84/S5" },
-    { title: "s4", desc: "Structured State Space Sequence Models codebase updates.", tags: ["SSM", "Time Series"], url: "https://github.com/cataluna84/s4" }
+    { title: "s4", desc: "Structured State Space Sequence Models codebase updates.", tags: ["SSM", "Time Series"], url: "https://github.com/cataluna84/s4" },
+    { title: "DistAya", desc: "Expeditions Aya (Cohere For AI): pruning, sparsity, knowledge distillation and quantization of multilingual LLMs to run at large batch sizes on cloud, mobile and edge.", tags: ["Distillation", "Pruning", "Quantization"], url: "https://huggingface.co/DistAya" },
+    { title: "TWIML-RAG", desc: "TWIML Generative AI community project: a transcription pipeline over the TWIML podcast plus a dialog agent answering questions about episodes and their subject areas.", tags: ["RAG", "Community", "LLMs"], url: "https://github.com/TWIML/TWIML-RAG" },
+    { title: "llm-rag-eval", desc: "Google AI Hackathon: fine-tuning RAGAS metrics with DSPy so RAG evaluation is optimized for the domain the system actually operates in.", tags: ["DSPy", "RAG Eval", "Prompt Engineering"], url: "https://devpost.com/software/llm-rag-eval" },
+    { title: "Deep-KRR", desc: "CoSubmitting Summer @ ICLR 2022 proposal on Deep Banach Space Kernels — a representer theorem for compositional reproducing kernel Banach spaces whose solution set contains ReLU nets.", tags: ["Kernel Methods", "Mathematics", "Theory"], url: "https://github.com/MrityunjayBhardwaj/Deep-KRR" },
+    { title: "LLM Cohort — Multilingual Long Context", desc: "Orchestrated six Cohere Labs sessions on enhancing multilingual long-context processing: RoPE, NoPE and Long RoPE variants over MoEs, plus hybrid Transformer/SSM models.", tags: ["RoPE", "MoE", "SSM"], url: "https://sites.google.com/cohere.com/coherelabs-community/community-programs/birds/llm-cohort" }
   ],
 
   contributions: [
@@ -171,7 +211,11 @@ const portfolioData = {
   ],
 
   blog: [
-    { title: "Fine tuning CLIP with Remote Sensing (Satellite) images and captions", venue: "HuggingFace Blog", date: "Oct 2021", url: "https://huggingface.co/blog/fine-tune-clip-rsicd", desc: "Collaborative project during the Flax/JAX Community Week training models on TPUs." }
+    { title: "Cross-Lingual Emergent Misalignment: A Shared Direction Propagates Safety Failures Across Languages", venue: "ICML 2026 Mechanistic Interpretability Workshop", date: "Jun 2026", url: "https://openreview.net/forum?id=JjtZl9jTSW", desc: "Virtual poster. Structured, nonuniform transfer of induced misalignment across eight typologically diverse languages." },
+    { title: "Adapting Moshi for Low-Resource Speech Translation", venue: "Cohere Labs Blog", date: "2026", url: "https://cohere-labs-community.github.io/blog/2026/adapting-moshi-low-resource-speech-translation/", desc: "How TinyAya drives a frozen Moshi depth decoder over Mimi audio codes for Turkish↔Hindi speech-to-speech translation." },
+    { title: "Layer-Wise Multilingual LID in Compact Foundation Models", venue: "Project Paperback", date: "Apr 2026", url: "https://github.com/cataluna84/lid/blob/main/docs/paperback.md", desc: "Interpretability-guided compression across 67 languages and models from 0.6B to 8B parameters." },
+    { title: "Cross-Lingual Embedding Alignment in Tiny Aya Global", venue: "Research Paperback", date: "Apr 2026", url: "https://github.com/rsk2327/Tiny-Aya-Under-the-hood/blob/main/analysis/cross_lingual_embedding_alignment/paperback.md", desc: "CKA analysis of how language-agnostic processing and region-specific specialization emerge across 36 layers." },
+    { title: "Fine tuning CLIP with Remote Sensing (Satellite) images and captions", venue: "HuggingFace Blog", date: "Oct 2021", url: "https://huggingface.co/blog/fine-tune-clip-rsicd", desc: "Collaborative project during the Flax/JAX Community Week training models on TPUs. 3rd place in the Hugging Face JAX Global Sprint." }
   ],
 
   skills: {
@@ -184,8 +228,72 @@ const portfolioData = {
   experience: [
     { role: "Founder & CEO", company: "OM Enterprises — AI Research & Engineering Labs", period: "Present", desc: "Leading cutting-edge ML research and providing enterprise services focused on multimodal data (audio, text, video) with high throughput and low latency.", tags: ["Leadership", "Research", "Applied ML"] },
     { role: "Community Lead & Researcher", company: "Cohere Labs", period: "Present", desc: "Leading community initiatives and conducting research on LLMs, multilinguality, and mechanistic interpretability.", tags: ["Community", "LLMs"] },
-    { role: "Contributor Lead", company: "TWiML (This Week in ML)", period: "5+ years", desc: "Leading weekly Generative AI meetups, coordinating study groups, and organizing community engineering projects.", tags: ["Community", "GenAI"] },
-    { role: "Previous Roles", company: "InfoBeans, TCS", period: "Pre-2020", desc: "14+ years of software engineering and development experience building scalable enterprise systems before transitioning fully to AI research.", tags: ["Software Engineering", "Architecture"] }
+    { role: "Contributor Lead", company: "TWiML (This Week in ML)", period: "5+ years", desc: "Leading the weekly Generative AI Problem Solving, Research & Impact meetup, coordinating study groups, and organizing community engineering projects.", tags: ["Community", "GenAI"] },
+    {
+      role: "Innovation Day — Deep Learning R&D",
+      company: "InfoBeans",
+      period: "Sep 2018 – Jan 2019",
+      desc: "Built streaming analytics applications on NVIDIA's DeepStream SDK and 3D human modeling on the Intel RealSense D435i depth camera.",
+      bullets: [
+        "Wrote custom kernels and handled training, fine-tuning and inference optimization for vision models",
+        "Detected cars in full versus empty parking spots from live camera feeds",
+        "Streamed live traffic-intersection data to detect number plates and vehicle features",
+        "Developed 3D mesh-based human modeling systems on RealSense depth input"
+      ],
+      tags: ["C++", "Python", "DeepStream SDK", "Computer Vision", "GPU Programming"]
+    },
+    {
+      role: "MySelfies — iOS Computer Vision",
+      company: "InfoBeans",
+      period: "Jul 2017 – Apr 2018",
+      desc: "Developed the story feature for a consumer selfie app, with plans to bring ARKit in.",
+      bullets: [
+        "Trained computer vision models via style transfer in a Lua-based environment",
+        "Pruned, distilled and quantized models for Apple's on-device iOS ecosystem",
+        "Project stalled on the decision not to rewrite the app from the ground up, so the CV models never reached production"
+      ],
+      tags: ["Swift", "Lua", "Style Transfer", "Model Optimization"]
+    },
+    {
+      role: "E-Assure, Android R&D & Data Migration",
+      company: "Tata Consultancy Services — CoE Automation Lab, Lucknow",
+      period: "May 2013 – Dec 2015",
+      desc: "Product development across three mandates: the E-Assure test-automation and analytics product, an Android integration feasibility study, and a cross-tool data migration product.",
+      bullets: [
+        "E-Assure: logical and physical data modeling, plus base architecture on Spring, Hibernate, connection pooling and Jasig CAS single sign-on",
+        "E-Assure: automation over HP ALM test cases, an analytics layer, and role-based user management",
+        "E-Assure: designed the scheduler and licensing mechanism, deployed on Tomcat with Apache Commons Daemon, built with Maven and covered by Spring JUnit tests",
+        "Android R&D: assessed Android architecture, hardware and software requirements for integration with existing enterprise applications, including parsers and REST-based Java web services",
+        "Data Migration: feasibility analysis of HP ALM, ServiceNow and Atlassian JIRA, then a batch scheduler architecture consuming and producing REST services"
+      ],
+      tags: ["Java", "Spring Security", "Hibernate", "REST APIs", "Maven", "JUnit"]
+    },
+    {
+      role: "ESS-IVR — Java Developer",
+      company: "Tata Consultancy Services — Walgreens, Noida",
+      period: "May 2012 – Apr 2013",
+      desc: "Built and maintained an Interactive Voice Response system in VXML for Walgreens pharmacy operations.",
+      bullets: [
+        "Architected the business layer and data management components of the VXML-based system",
+        "Developed entity and session beans, customer flows and server-side J2EE components",
+        "Collaborated on a cache layer for faster database retrieval",
+        "Maintained a reporting tool spanning multiple Walgreens pharmacy stores, fed by a nightly batch extracting from Avaya into Oracle RDBMS",
+        "Maintained the distributed batch system and configured WebSphere for mailing"
+      ],
+      tags: ["Java", "VXML", "J2EE", "Oracle", "WebSphere"]
+    },
+    {
+      role: "Telecom Inventory Management System",
+      company: "Tata Consultancy Services — ILP, Hyderabad",
+      period: "Jan 2012 – May 2012",
+      desc: "Developed web software letting wholesalers sell products to retailers.",
+      bullets: [
+        "User interface module for the retailer-facing experience",
+        "Stock management: product and accessory storage, offer creation, defective-product replacement and quantity updates",
+        "Order management: placing and cancelling orders"
+      ],
+      tags: ["Java", "Java Enterprise Edition", "Web Development"]
+    }
   ]
 };
 
@@ -224,7 +332,7 @@ function createARCGrid(items) {
 function createKaggleTable(items) {
   const rows = items.map(item => `
     <tr style="border-bottom: 1px solid var(--border-glass);">
-      <td style="padding: 1rem 0;"><strong>${item.name}</strong></td>
+      <td style="padding: 1rem 0;"><strong><a href="https://www.kaggle.com/competitions/${item.slug}" target="_blank" rel="noopener">${item.name}</a></strong></td>
       <td style="padding: 1rem 0; color: var(--text-secondary);">${item.type}</td>
       <td style="padding: 1rem 0; color: var(--accent-secondary); font-family: var(--font-mono);">${item.placement}</td>
       <td style="padding: 1rem 0;">${item.medal ? `<span class="project-result">🏅 ${item.medal}</span>` : ''}</td>
@@ -245,7 +353,7 @@ function createKaggleTable(items) {
         <tbody>${rows}</tbody>
       </table>
       <p style="margin-top: 1rem; font-size: 0.85rem; color: var(--text-muted);">
-        Showing 20 of 52 completed competitions. Rank 1,532 / 202,876 globally.
+        All 21 completed competitions. Rank 1,532 / 202,856 globally.
       </p>
     </div>
   `;
@@ -293,6 +401,7 @@ function createTimeline(items) {
         <div class="timeline-period">${item.period}</div>
       </div>
       <p class="timeline-desc">${item.desc}</p>
+      ${item.bullets ? `<ul class="timeline-bullets">${item.bullets.map(b => `<li>${b}</li>`).join('')}</ul>` : ''}
       <div class="timeline-tags">
         ${item.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
       </div>

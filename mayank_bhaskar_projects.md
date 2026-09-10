@@ -1,44 +1,169 @@
-# Mayank Bhaskar - Projects Portfolio
+# Mayank Bhaskar — Top Projects Portfolio
 
-## Current Projects (2025-2026)
+## Current Projects (2026)
 
-### Expedition Tiny Aya
-**Feb 2026 – Present** | Associated with OM Enterprises — AI Research & Engineering Labs
+### NanoGPT with JAX
+**Jul 2026 – Present** | Associated with OM Enterprises — AI Research & Engineering Labs
 
-Expedition Tiny Aya is a multi-phase, mentor-supported research challenge designed to catalyze new projects using the Tiny Aya model family. It brings together researchers, engineers, and open-source builders to explore multilingual AI—especially for low-resource languages—and to share their work publicly.
+A pure-JAX implementation and research codebase for scalable LLM architectures, spanning NanoGPT-style training and extensions for Cloud TPU workflows.
 
-**Why it matters:**
-- First access to generative models in some languages
-- Open research and open-source impact
-- Community-driven collaboration with expert mentorship to grow research skills
+**Focus:**
+- LLM architecture experimentation in JAX
+- TPU v5e-64 and TPU v6e-16 training workflows
+- Scalable training and launch tooling for Cloud TPUs
+- Long-horizon experimentation for sequence-to-sequence translation and language modeling
 
-Supported by the Cohere Labs Open Science Community, which provides technical guidance, collaboration infrastructure, and support towards publication.
+**Skills:** JAX, Large Language Models, Cloud TPU, Distributed Training
 
 **Links:**
-- [Expedition Tiny Aya | Notion](https://www.notion.so/Expedition-Tiny-Aya-2f04398375db804c93c4c9f5fbb94833)
-- [Cohere Labs Blog: Tiny Aya](https://cohere.com/blog/cohere-labs-tiny-aya)
+- [GitHub: llm-architectures](https://github.com/cataluna84/llm-architectures)
+- [RAW Worklog Part 51](https://www.youtube.com/watch?v=iGJNnUMGHJk)
+- [RAW Worklog Part 52](https://www.youtube.com/watch?v=5c03fmryQoc)
+
+---
+
+### ARC Prize 2026 (ARC-AGI-3)
+**Apr 2026 – Present** | Associated with OM Enterprises — AI Research & Engineering Labs
+
+A public research notebook and engineering repository for the Kaggle ARC Prize 2026 / ARC-AGI-3 competition, documenting agent-based approaches, experiments, evaluation tooling, and iterative research toward abstract reasoning.
+
+**Focus:**
+- ARC-AGI task solving and generalization
+- Agent systems and experiment orchestration
+- Reproducible competition tooling
+- Public research documentation
+
+**Skills:** Machine Learning, Agents, Abstract Reasoning, Kaggle
+
+**Links:**
+- [GitHub: arc-agi-3](https://github.com/cataluna84/arc-agi-3)
 
 ---
 
 ### Vision Interpretability Project
-**Jan 2026 – Present** | Associated with OM Enterprises — AI Research & Engineering Labs
+**Jan 2026 – Aug 2026** | Associated with OM Enterprises — AI Research & Engineering Labs
 
-A community-driven effort to reproduce, consolidate, and extend core visualizations from the Circuits thread, with emphasis on activation maximization, dataset-driven neuron exemplars, curve-detector visualizations, circuit discovery, and related interpretability methods for the InceptionV1 model.
+A community-driven effort to reproduce, consolidate, and extend core visualizations from the Circuits thread, emphasizing activation maximization, dataset-driven neuron exemplars, curve-detector visualizations, circuit discovery, and related interpretability methods for InceptionV1.
 
 **Objective:**
-Develop a single, well-documented, open-source codebase that supports reliable reproduction and systematic exploration of these techniques. While the OpenAI Microscope previously provided access to many such visualizations across vision models, it is no longer active.
+Develop a unified, well-documented, open-source codebase for reliable reproduction and systematic exploration of vision mechanistic-interpretability techniques.
 
 **Contributions focus on:**
-- Creating reusable notebooks
+- Reusable notebooks
 - Clear documentation
 - Reproducible pipelines for hands-on investigation of mechanistic interpretability
 
-**Skills:** Applied Machine Learning
+**Skills:** Applied Machine Learning, Computer Vision, Mechanistic Interpretability
 
 **Links:**
-- [Vision Interpretability Project | Notion](https://www.notion.so/Vision-Interpretability-Project-30edf04eb8358007b59ed8fea617b18e)
+- [Inception V1 Microscope — Hugging Face Space](https://huggingface.co/spaces/akankshanc/inception-v1-microscope)
+- [Vision Interpretability Project — Notion](https://www.notion.so/Vision-Interpretability-Project-30edf04eb8358007b59ed8fea617b18e)
 - [GitHub Repository](https://github.com/Cohere-Labs-Community/Vision-Interpretability)
 
+---
+
+### TinyAya: Simultaneous Translation
+**Feb 2026 – Jul 2026** | Associated with OM Enterprises — AI Research & Engineering Labs
+
+A Turkish-to-Hindi and Hindi-to-Turkish speech-to-speech translation project for an extremely low-resource language pair. The system LoRA-adapts a Cohere2 backbone to drive a frozen Moshi depth decoder over Mimi audio codes, with a parallel text “inner-monologue” stream.
+
+**Highlights:**
+- Built the end-to-end corpus, synthetic-speech, encoded audio-token, training, and checkpoint pipeline
+- Ran a full-corpus training job for 76,250 steps (2.07 epochs) on a Cloud TPU v6e-16
+- Achieved a best validation composite score of 2.8199 at step 76,000
+- Observed staged capability development: language identity, text translation, then audio synthesis
+- Identified intelligible speech synthesis as the primary remaining constraint, linked to the frozen depth decoder
+
+**Skills:** Speech Translation, Multilingual LLMs, LoRA, TPU Training, Audio Models
+
+**Links:**
+- [GitHub: tiny-aya-simultaneous-translation](https://github.com/tiny-aya-simultaneous-translation)
+- [Cohere Labs Blog](https://cohere-labs-community.github.io/blog/2026/adapting-moshi-low-resource-speech-translation/)
+- [HF Dataset & Model Weights](https://huggingface.co/tiny-aya-translate)
+
+---
+
+### Cross-Lingual Emergent Misalignment: A Shared Direction Propagates Safety Failures Across Languages
+**Apr 2026 – Jun 2026** | Associated with OM Enterprises — AI Research & Engineering Labs
+
+A study of whether harmful behavior induced in one language transfers through shared representations in multilingual LLMs. The work fine-tunes the 3.35B-parameter Tiny Aya family on insecure English text and evaluates emergent-misalignment transfer across English, Portuguese, Turkish, Hindi, Marathi, Urdu, Hausa, and Yoruba.
+
+**Highlights:**
+- Mechanistic analysis of cross-language safety transfer
+- Evidence for a shared internal misalignment direction, especially across a middle band of layers
+- Activation-steering experiments using a direction extracted solely from English data
+- Analysis of structured, nonuniform transfer across typologically diverse languages
+- Virtual poster presentation at the ICML 2026 Mechanistic Interpretability Workshop
+
+**Skills:** AI Safety, Mechanistic Interpretability, Multilingual LLMs, Representation Steering
+
+**Links:**
+- [GitHub: crosslingual-emergent-misalignment](https://github.com/Cohere-Labs-Community/crosslingual-emergent-misalignment)
+- [Mechanistic Analysis Paperback](https://github.com/Cohere-Labs-Community/crosslingual-emergent-misalignment/blob/main/experimental/mechanistic_analysis/paper/paperback.md)
+- [ICML 2026 Workshop Poster](https://openreview.net/pdf?id=JjtZl9jTSW)
+
+---
+
+### Football Tactical Next-Action Prediction
+**Apr 2026** | Associated with OM Enterprises — AI Research & Engineering Labs
+
+A tactical next-action and reasoning-prediction system evaluated on 348 football match contexts from Shipd Project Eris. The project uses a task-coupled four-component ensemble to predict both the next tactical decision and the reasoning behind it.
+
+**Technical approach:**
+- DeBERTa-v3-base and DeBERTa-v3-large models
+- Cross-encoder multiple-choice scoring
+- Zero-shot natural-language inference
+- Three-pass mixture-of-experts fusion using Qwen3.5-35B-A3B-Int4 and Gemma-4-26B-A4B-it
+- Process-reward-model reranking
+- Weights & Biases experiment instrumentation
+
+**Target:** Combined score of at least 0.80.
+
+**Skills:** NLP, Model Ensembling, Sports Analytics, LLM Reasoning, Experiment Tracking
+
+**Links:**
+- [GitHub](https://github.com/cataluna84/football-ntap)
+
+---
+
+### Layer-Wise Multilingual LID in Compact Foundation Models
+**Feb 2026 – Apr 2026** | Associated with OM Enterprises — AI Research & Engineering Labs
+
+A unified mechanistic-interpretability and systems study of how language identification emerges through depth in compact foundation models, covering models from approximately 0.6B to 8B parameters.
+
+**Research scope:**
+- Layer-wise language-ID analysis across Tiny Aya, Gemma 4, Qwen 3, and Qwen 3.5 families
+- Evaluation over 67 languages, including code-mixing and transliteration stress tests
+- Per-layer quantization and circuit-preserving pruning
+- Script-first early exit
+- Preference optimization for closely related language pairs
+- Elastic-depth inference using MatFormer and thinking-budget approaches
+- Interpretability-guided compression targeting 30–50% faster inference with no F1 loss
+
+**Skills:** Mechanistic Interpretability, Language Identification, Model Compression, Quantization, Pruning, LLM Systems
+
+**Links:**
+- [GitHub: lid](https://github.com/cataluna84/lid)
+- [Project Paperback](https://github.com/cataluna84/lid/blob/main/docs/paperback.md)
+
+---
+
+### Tiny Aya — Under The Hood
+**Mar 2026 – Apr 2026** | Associated with OM Enterprises — AI Research & Engineering Labs
+
+A mechanistic-interpretability study of multilingual representation emergence in Tiny Aya Global, a 3.35B-parameter model with 36 transformer layers. The project investigates how representations evolve across layers to identify language-agnostic processing and region-specific specialization.
+
+**Focus:**
+- Cross-lingual embedding-alignment analysis
+- Centered Kernel Alignment (CKA) notebooks
+- Layer-wise multilingual representation analysis
+- Reproducible research directions for multilingual interpretability
+
+**Skills:** Mechanistic Interpretability, Multilingual Representation Learning, CKA, LLM Analysis
+
+**Links:**
+- [GitHub: Tiny-Aya-Under-the-Hood](https://github.com/rsk2327/Tiny-Aya-Under-the-hood)
+- [Research Paperback](https://github.com/rsk2327/Tiny-Aya-Under-the-hood/blob/main/analysis/cross_lingual_embedding_alignment/paperback.md)
 ---
 
 ## 2025 Projects
@@ -76,7 +201,7 @@ Orchestrated six sessions on the LLM cohort covering:
 ### ARC Prize 2024
 **Jun 2024 – Nov 2024** | Associated with TWIML
 
-Finished in 27th position in the ARC-24 challenge.
+Finished 24th out of 1,427 teams in the ARC-24 challenge, earning a Silver Medal.
 
 The goal of the ARC Challenge is to inspire the development of intelligent systems that can learn new tasks from just a few examples — something humans excel at but where even cutting-edge models like GPT-4, o1, and Claude still struggle.
 
@@ -199,9 +324,6 @@ Developed the story feature with plans to incorporate ARKit into MySelfies.
 **Note:** Project stalled when decision was made not to rewrite the app from ground up. CV models didn't make it to production.
 
 **Skills:** Swift, Lua, Computer Vision, Style Transfer, Model Optimization
-
-**Links:**
-- [MySelfies on App Store](https://apps.apple.com/app/myselfies)
 
 ---
 
@@ -419,4 +541,4 @@ Through participation in 21+ Kaggle competitions, I have developed expertise acr
 - **Technical Depth:** Deep learning, ensemble methods, metric learning, multi-task learning, domain adaptation
 - **Industry Experience:** Automated assessment, healthcare AI, quantitative finance, educational technology, assistive technology
 
-**Total Projects:** 15+ major competitions spanning research, industry, and open-source contributions
+**Total Competitions:** 21 completed Kaggle competitions spanning research, industry, and community challenges

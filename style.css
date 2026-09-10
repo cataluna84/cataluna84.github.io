@@ -661,6 +661,28 @@ img { max-width: 100%; display: block; }
   max-width: 650px;
 }
 
+.timeline-bullets {
+  margin: 0.6rem 0 0;
+  padding-left: 1.1rem;
+  max-width: 650px;
+  list-style: none;
+}
+
+.timeline-bullets li {
+  position: relative;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  line-height: 1.65;
+  margin-bottom: 0.35rem;
+}
+
+.timeline-bullets li::before {
+  content: "▸";
+  position: absolute;
+  left: -1.1rem;
+  color: var(--accent-secondary);
+}
+
 .timeline-tags {
   display: flex;
   flex-wrap: wrap;
@@ -827,6 +849,19 @@ img { max-width: 100%; display: block; }
   border-color: var(--border-hover);
   color: var(--text-primary);
   transform: translateY(-2px);
+}
+
+/* Not a link, so it must not offer link affordances. Selectable to copy the handle. */
+.contact-link-static {
+  cursor: default;
+  user-select: all;
+}
+
+.contact-link-static:hover {
+  background: initial;
+  border-color: var(--border-glass);
+  color: var(--text-secondary);
+  transform: none;
 }
 
 /* ===== Footer ===== */
