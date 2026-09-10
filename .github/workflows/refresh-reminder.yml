@@ -118,8 +118,10 @@ jobs:
             body="$body"$'\n\n'"> [!WARNING]"$'\n'"> $note"
           fi
 
-          # Read the report from a file rather than interpolating it through
-          # ${{ }}, which would inject multi-line text straight into this script.
+          # Read the report from a file rather than a step output: a GitHub
+          # expression would inject multi-line text straight into this script.
+          # (The literal expression syntax cannot even appear in this comment,
+          # since the workflow parser scans the whole file for it.)
           if [ "$DRIFT_STATUS" = "drift" ]; then
             body="$body"$'\n\n'"> [!CAUTION]"$'\n'"> \`check_content_sync.py\` reports the content files disagree:"$'\n\n'"\`\`\`"$'\n'"$(cat "$RUNNER_TEMP/drift.txt")"$'\n'"\`\`\`"
           fi
