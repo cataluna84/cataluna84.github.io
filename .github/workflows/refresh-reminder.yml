@@ -16,7 +16,10 @@ on:
     - cron: "23 5 2 * *"
   workflow_dispatch:
 
+# contents: read is required, not optional: naming `permissions` at all sets every
+# scope not listed here to none, which would make actions/checkout fail.
 permissions:
+  contents: read
   issues: write
 
 concurrency:
@@ -27,6 +30,8 @@ jobs:
   remind:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v4
+
       - name: Check whether the profile stats block has gone stale
         id: check
         env:
@@ -50,12 +55,25 @@ jobs:
             echo "note=Profile stats in cataluna84/cataluna84 are $age days old (generated $generated). The monthly workflow there may be disabled: GitHub turns off schedules after 60 days of repo inactivity. Check its Actions tab." >> "$GITHUB_OUTPUT"
           fi
 
+      - name: Check the content files for drift
+        id: sync
+        run: |
+          # Offline and credential-free. Network link checking is deliberately not
+          # enabled here: third-party hosts rate-limit CI runners, which would turn
+          # this into a flaky monthly false alarm.
+          if python3 scripts/check_content_sync.py > "$RUNNER_TEMP/drift.txt" 2>&1; then
+            echo "status=clean" >> "$GITHUB_OUTPUT"
+          else
+            echo "status=drift" >> "$GITHUB_OUTPUT"
+          fi
+          cat "$RUNNER_TEMP/drift.txt"
+
       - name: Open or update the reminder issue
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          # This job does not check out the repository, so gh cannot infer the
-          # target from a git remote.
+          # Set explicitly so this keeps working regardless of checkout state.
           GH_REPO: ${{ github.repository }}
+          DRIFT_STATUS: ${{ steps.sync.outputs.status }}
         run: |
           gh label create content-refresh --color 0e8a16 \
             --description "Recurring portfolio content refresh" --force || true
@@ -77,11 +95,19 @@ jobs:
           uv run python scripts/extract_kaggle.py
           ```
 
-          Then keep the three sources in sync, since nothing does it automatically:
+          Then keep the three sources in sync, with `mayank_bhaskar_projects.md` as
+          the source of truth:
 
+          - `mayank_bhaskar_projects.md` (source of truth)
           - `script.js` (the site)
           - `mayank_bhaskar_resume.html`
-          - `mayank_bhaskar_projects.md`
+
+          Verify before committing:
+
+          ```bash
+          python3 scripts/check_content_sync.py           # figures agree
+          python3 scripts/check_content_sync.py --links   # plus link liveness
+          ```
 
           Close this issue once done. A new one opens next month.
           EOF
@@ -90,6 +116,12 @@ jobs:
           note="${{ steps.check.outputs.note }}"
           if [ -n "$note" ]; then
             body="$body"$'\n\n'"> [!WARNING]"$'\n'"> $note"
+          fi
+
+          # Read the report from a file rather than interpolating it through
+          # ${{ }}, which would inject multi-line text straight into this script.
+          if [ "$DRIFT_STATUS" = "drift" ]; then
+            body="$body"$'\n\n'"> [!CAUTION]"$'\n'"> \`check_content_sync.py\` reports the content files disagree:"$'\n\n'"\`\`\`"$'\n'"$(cat "$RUNNER_TEMP/drift.txt")"$'\n'"\`\`\`"
           fi
 
           existing=$(gh issue list --label content-refresh --state open \

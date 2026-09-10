@@ -28,9 +28,11 @@ A small Python side-channel (`scripts/extract_kaggle.py`) pulls live data from t
 ├── ProfilePic.png              # Hero avatar
 ├── mayank_bhaskar_resume.html  # Standalone print-ready résumé
 ├── mayank_bhaskar_projects.md  # Long-form project narrative (source of truth)
+├── aboutme.md                  # Long-form bio + socials (source of truth)
 ├── extracted_competitions.json # Partial scratch output from the extractor
 ├── scripts/
-│   └── extract_kaggle.py       # Pulls Kaggle + W&B data via API
+│   ├── extract_kaggle.py       # Pulls Kaggle + W&B data via API
+│   └── check_content_sync.py   # Fails when the content files disagree
 ├── pyproject.toml              # uv project definition
 ├── uv.lock
 ├── .env.example                # Template — copy to .env and fill in real keys
@@ -50,7 +52,16 @@ python -m http.server 8000
 
 All visible content (projects, ARC results, Kaggle table, experience, skills, blog) lives in **one place**: the `portfolioData` object at the top of `script.js`. Edit the relevant array, save, refresh.
 
-The long-form project narrative in `mayank_bhaskar_projects.md` and the standalone résumé in `mayank_bhaskar_resume.html` are independent — keep them in sync manually when adding new entries.
+`mayank_bhaskar_projects.md` and `aboutme.md` are the **source of truth**. The site (`script.js` + `index.html`) and `mayank_bhaskar_resume.html` are hand-synced from them, so write the prose there first, then propagate.
+
+There is deliberately no build step — the site must keep working when `index.html` is opened straight off disk. Instead, a checker catches the figures that drift:
+
+```bash
+python3 scripts/check_content_sync.py           # competitor counts, ranks, medals, years, DOM wiring
+python3 scripts/check_content_sync.py --links   # plus liveness of every URL
+```
+
+It exits non-zero on any disagreement and names both sides. The monthly reminder workflow runs it and pastes the report into the reminder issue.
 
 ## Data extractor (optional)
 
