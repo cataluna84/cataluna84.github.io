@@ -3,7 +3,18 @@
 const portfolioData = {
   tier1Projects: [
     {
+      id: "llm-serving-kernels",
+      featuredOrder: 1,
+      title: "LLM Serving & GPU Kernel Engineering",
+      description: "Engineered custom CUDA C++ and OpenAI Triton kernels for attention and activation operators, then optimized vLLM serving by separating prompt prefill from autoregressive decode and pooling PagedAttention KV caches on A100/H100 GPUs.",
+      tags: ["CUDA C++", "Triton", "vLLM", "GPU Systems", "Inference"],
+      links: [],
+      metrics: "38% lower TTFT · 3.2× request throughput"
+    },
+    {
       id: "nanogpt-jax",
+      period: "Jul 2026 – Present",
+      featuredOrder: 2,
       title: "NanoGPT with JAX",
       description: "Pure-JAX implementation and research codebase for scalable LLM architectures, spanning NanoGPT-style training and extensions for Cloud TPU workflows. Includes launch tooling for long-horizon sequence-to-sequence translation and language-modeling runs.",
       tags: ["JAX", "Large Language Models", "Cloud TPU", "Distributed Training"],
@@ -16,6 +27,8 @@ const portfolioData = {
     },
     {
       id: "lid",
+      period: "Feb 2026 – Apr 2026",
+      featuredOrder: 4,
       title: "LID — Layer-Wise Multilingual Language ID",
       description: "Unified mechanistic-interpretability and systems study of how language identification emerges through depth in compact foundation models (~0.6B–8B), across Tiny Aya, Gemma 4, Qwen 3 and Qwen 3.5. Covers 67 languages with code-mixing and transliteration stress tests, per-layer quantization, circuit-preserving pruning, script-first early exit, and MatFormer elastic-depth inference.",
       tags: ["PyTorch", "Mechanistic Interpretability", "Model Compression", "Quantization", "Pruning"],
@@ -27,6 +40,8 @@ const portfolioData = {
     },
     {
       id: "arc-agi-3",
+      period: "Apr 2026 – Present",
+      featuredOrder: 7,
       title: "ARC Prize 2026 (ARC-AGI-3)",
       description: "Public lab notebook for the $850K ARC-AGI-3 competition. Contains agent zoo, FORGE, BFS, CNN, frame segmenter. Currently at D16 of the competition with multiple evaluation traces.",
       tags: ["Python", "Reinforcement Learning", "Search Algorithms"],
@@ -47,6 +62,8 @@ const portfolioData = {
     },
     {
       id: "vision-interpretability",
+      period: "Jan 2026 – Aug 2026",
+      featuredOrder: 5,
       title: "Vision Interpretability Project",
       description: "Community-driven effort to reproduce, consolidate and extend core visualizations from the Circuits thread for InceptionV1 — activation maximization, dataset-driven neuron exemplars, curve-detector visualizations and circuit discovery — as one well-documented open-source codebase with reusable notebooks and reproducible pipelines.",
       tags: ["Computer Vision", "Mechanistic Interpretability", "InceptionV1", "Applied ML"],
@@ -59,6 +76,8 @@ const portfolioData = {
     },
     {
       id: "tiny-aya-translation",
+      period: "Feb 2026 – Jul 2026",
+      featuredOrder: 3,
       title: "TinyAya: Simultaneous Translation",
       description: "Turkish↔Hindi speech-to-speech translation for an extremely low-resource language pair. LoRA-adapts a Cohere2 backbone to drive a frozen Moshi depth decoder over Mimi audio codes, with a parallel text \"inner-monologue\" stream. Built the end-to-end corpus, synthetic-speech, audio-token, training and checkpoint pipeline; trained 76,250 steps (2.07 epochs) on a Cloud TPU v6e-16.",
       tags: ["Speech Translation", "Multilingual LLMs", "LoRA", "TPU Training"],
@@ -92,6 +111,8 @@ const portfolioData = {
     },
     {
       id: "cohere-misalignment",
+      period: "Apr 2026 – Jun 2026",
+      featuredOrder: 6,
       title: "Cross-Lingual Emergent Misalignment",
       description: "Does harmful behavior induced in one language transfer through shared representations? Fine-tunes the 3.35B-parameter Tiny Aya family on insecure English text, then measures emergent-misalignment transfer across English, Portuguese, Turkish, Hindi, Marathi, Urdu, Hausa and Yoruba. Finds evidence of a shared internal misalignment direction concentrated in a middle band of layers, confirmed by activation steering using a direction extracted from English data alone.",
       tags: ["AI Safety", "Mechanistic Interpretability", "Multilingual LLMs", "Representation Steering"],
@@ -188,6 +209,7 @@ const portfolioData = {
 
   githubProjects: [
     { title: "Generative_Deep_Learning", desc: "Generative Modeling notebooks covering GANs, Diffusion, and VAEs.", tags: ["Jupyter", "GANs"], url: "https://github.com/cataluna84/Generative_Deep_Learning" },
+    { title: "CLIP-RSICD — Remote Sensing Vision-Language", desc: "Fine-tuned CLIP on satellite imagery and captions for image-text retrieval; placed third in the Hugging Face Flax/JAX Community Sprint.", tags: ["JAX", "CLIP", "Computer Vision"], url: "https://huggingface.co/blog/fine-tune-clip-rsicd" },
     { title: "S5", desc: "Simplified State Space Layers for Sequence Modeling.", tags: ["SSM", "Sequence Modeling"], url: "https://github.com/cataluna84/S5" },
     { title: "s4", desc: "Structured State Space Sequence Models codebase updates.", tags: ["SSM", "Time Series"], url: "https://github.com/cataluna84/s4" },
     { title: "DistAya", desc: "Expeditions Aya (Cohere For AI): pruning, sparsity, knowledge distillation and quantization of multilingual LLMs to run at large batch sizes on cloud, mobile and edge.", tags: ["Distillation", "Pruning", "Quantization"], url: "https://huggingface.co/DistAya" },
@@ -219,81 +241,18 @@ const portfolioData = {
   ],
 
   skills: {
-    "Deep Learning & Research": ["PyTorch", "JAX/Flax", "State Space Models (S4/S5/Mamba)", "Transformers", "Mechanistic Interpretability", "RL & CMA-ES"],
-    "ML Engineering & MLOps": ["CUDA/Triton", "Weights & Biases", "Docker", "Model Quantization (INT4/INT8/FP8)", "FlashAttention", "HuggingFace"],
-    "Computer Vision & Edge": ["DeepStream SDK", "On-Device Inference (iOS)", "Vision Transformers", "CLIP"],
+    "Deep Learning & Research": ["PyTorch", "JAX/Flax", "Diffusion, GANs & VAEs", "Transformers & VLMs", "LoRA / QLoRA", "Mechanistic Interpretability", "RL & Sim2Real"],
+    "ML Systems & MLOps": ["CUDA C++ / Triton", "vLLM", "TensorRT", "TPU Training", "PyTorch DDP / FSDP", "Weights & Biases", "TFX", "Quantization & Distillation"],
+    "Computer Vision & Edge": ["Detection & Segmentation", "Visual Anomaly Detection", "OOD & Drift Monitoring", "DeepStream SDK", "CoreML / iOS", "CLIP & Vision Transformers", "3D / RGB-D"],
     "Languages & Tools": ["Python", "C++", "uv", "Make", "Git", "Linux"]
   },
 
   experience: [
-    { role: "Founder & CEO", company: "OM Enterprises — AI Research & Engineering Labs", period: "Present", desc: "Leading cutting-edge ML research and providing enterprise services focused on multimodal data (audio, text, video) with high throughput and low latency.", tags: ["Leadership", "Research", "Applied ML"] },
-    { role: "Community Lead & Researcher", company: "Cohere Labs", period: "Present", desc: "Leading community initiatives and conducting research on LLMs, multilinguality, and mechanistic interpretability.", tags: ["Community", "LLMs"] },
-    { role: "Contributor Lead", company: "TWiML (This Week in ML)", period: "5+ years", desc: "Leading the weekly Generative AI Problem Solving, Research & Impact meetup, coordinating study groups, and organizing community engineering projects.", tags: ["Community", "GenAI"] },
-    {
-      role: "Innovation Day — Deep Learning R&D",
-      company: "InfoBeans",
-      period: "Sep 2018 – Jan 2019",
-      desc: "Built streaming analytics applications on NVIDIA's DeepStream SDK and 3D human modeling on the Intel RealSense D435i depth camera.",
-      bullets: [
-        "Wrote custom kernels and handled training, fine-tuning and inference optimization for vision models",
-        "Detected cars in full versus empty parking spots from live camera feeds",
-        "Streamed live traffic-intersection data to detect number plates and vehicle features",
-        "Developed 3D mesh-based human modeling systems on RealSense depth input"
-      ],
-      tags: ["C++", "Python", "DeepStream SDK", "Computer Vision", "GPU Programming"]
-    },
-    {
-      role: "MySelfies — iOS Computer Vision",
-      company: "InfoBeans",
-      period: "Jul 2017 – Apr 2018",
-      desc: "Developed the story feature for a consumer selfie app, with plans to bring ARKit in.",
-      bullets: [
-        "Trained computer vision models via style transfer in a Lua-based environment",
-        "Pruned, distilled and quantized models for Apple's on-device iOS ecosystem",
-        "Project stalled on the decision not to rewrite the app from the ground up, so the CV models never reached production"
-      ],
-      tags: ["Swift", "Lua", "Style Transfer", "Model Optimization"]
-    },
-    {
-      role: "E-Assure, Android R&D & Data Migration",
-      company: "Tata Consultancy Services — CoE Automation Lab, Lucknow",
-      period: "May 2013 – Dec 2015",
-      desc: "Product development across three mandates: the E-Assure test-automation and analytics product, an Android integration feasibility study, and a cross-tool data migration product.",
-      bullets: [
-        "E-Assure: logical and physical data modeling, plus base architecture on Spring, Hibernate, connection pooling and Jasig CAS single sign-on",
-        "E-Assure: automation over HP ALM test cases, an analytics layer, and role-based user management",
-        "E-Assure: designed the scheduler and licensing mechanism, deployed on Tomcat with Apache Commons Daemon, built with Maven and covered by Spring JUnit tests",
-        "Android R&D: assessed Android architecture, hardware and software requirements for integration with existing enterprise applications, including parsers and REST-based Java web services",
-        "Data Migration: feasibility analysis of HP ALM, ServiceNow and Atlassian JIRA, then a batch scheduler architecture consuming and producing REST services"
-      ],
-      tags: ["Java", "Spring Security", "Hibernate", "REST APIs", "Maven", "JUnit"]
-    },
-    {
-      role: "ESS-IVR — Java Developer",
-      company: "Tata Consultancy Services — Walgreens, Noida",
-      period: "May 2012 – Apr 2013",
-      desc: "Built and maintained an Interactive Voice Response system in VXML for Walgreens pharmacy operations.",
-      bullets: [
-        "Architected the business layer and data management components of the VXML-based system",
-        "Developed entity and session beans, customer flows and server-side J2EE components",
-        "Collaborated on a cache layer for faster database retrieval",
-        "Maintained a reporting tool spanning multiple Walgreens pharmacy stores, fed by a nightly batch extracting from Avaya into Oracle RDBMS",
-        "Maintained the distributed batch system and configured WebSphere for mailing"
-      ],
-      tags: ["Java", "VXML", "J2EE", "Oracle", "WebSphere"]
-    },
-    {
-      role: "Telecom Inventory Management System",
-      company: "Tata Consultancy Services — ILP, Hyderabad",
-      period: "Jan 2012 – May 2012",
-      desc: "Developed web software letting wholesalers sell products to retailers.",
-      bullets: [
-        "User interface module for the retailer-facing experience",
-        "Stock management: product and accessory storage, offer creation, defective-product replacement and quantity updates",
-        "Order management: placing and cancelling orders"
-      ],
-      tags: ["Java", "Java Enterprise Edition", "Web Development"]
-    }
+    { role: "Founder, CEO & Principal AI Research Engineer", company: "OM Enterprises — AI Research & Engineering Labs", period: "Apr 2021 – Present", desc: "Direct research and engineering across robust computer vision, generative image and video systems, and interactive multimodal models. Focus on data-scarce settings, domain shift, reliable evaluation, and low-latency deployment.", bullets: ["Advise and collaborate on 50+ AI research papers, including experimental design, controlled ablations, systems scaling, and hardware/software trade-offs", "Build computer-vision and multimodal pipelines for industrial inspection, video analytics, healthcare, and robotics; account for data drift, illumination changes, confidence degradation, and out-of-distribution behavior", "Lead distributed training and evaluation on Google TPU Research Cloud and TPU Builder resources", "Develop high-throughput inference systems, custom GPU kernels, model compression pipelines, and low-latency multimodal speech systems", "Fine-tuned CLIP for satellite image and caption retrieval; placed third in the Hugging Face Flax/JAX Community Sprint"], tags: ["Research Engineering", "Generative AI", "Computer Vision", "Multimodal Systems"] },
+    { role: "Lead Consultant & Computer Vision Systems Engineer", company: "InfoBeans Technologies", period: "May 2017 – Mar 2021", desc: "Built real-time computer-vision systems for edge video inspection, generative imaging, and spatial AI.", bullets: ["Developed NVIDIA DeepStream and TensorRT pipelines for concurrent camera feeds, occupancy and anomaly detection, and license-plate recognition", "Trained image-to-image and style-transfer models; compressed models for Apple CoreML with reported inference below 25 ms", "Built synthetic simulation and Sim2Real experiments for autonomous and robotics applications", "Worked with Apple ARKit/LiDAR and Intel RealSense RGB-D data for 3D mesh, point-cloud, and human-pose pipelines", "Founded weekly Innovation Tuesday research seminars for engineering teams"], tags: ["Computer Vision", "DeepStream", "TensorRT", "Edge AI", "3D Vision"] },
+    { role: "Android Systems & OS Engineer", company: "Independent Systems Research", period: "Dec 2016 – Apr 2017", desc: "Built a customized Android OS from AOSP source, including Linux kernel compilation, cross-compilation toolchains, and hardware abstraction integration; also developed stereoscopic VR prototypes.", tags: ["AOSP", "Linux Kernel", "Android", "VR"] },
+    { role: "Java Systems Engineer & Consultant", company: "Broadleaf Commerce", period: "Jan 2016 – Nov 2016", desc: "Built enterprise e-commerce backend modules and improved database indexing, connection pooling, and transaction caching for high-concurrency workloads.", tags: ["Java", "Enterprise Systems", "Performance"] },
+    { role: "System Engineer", company: "Tata Consultancy Services", period: "May 2012 – Dec 2015", desc: "Built enterprise platforms, data migration services, and high-concurrency voice and ETL systems across TCS teams in Lucknow, Noida, and Hyderabad.", bullets: ["Architected Java batch schedulers, REST services, and relational schemas for HP ALM, ServiceNow, JIRA, and E-Assure", "Built Walgreens ESS-IVR modules and nightly pipelines streaming Avaya data into Oracle", "Recognized with Star of the Learners Group and Star of the Month (twice)"], tags: ["Java", "Spring", "REST APIs", "ETL", "Oracle"] },
   ]
 };
 
@@ -302,10 +261,11 @@ const portfolioData = {
 function createProjectCard(project) {
   return `
     <div class="project-card glass">
+      ${project.period ? `<div class="project-period">${project.period}</div>` : ''}
       <div class="project-card-header">
         <div class="project-icon">🔬</div>
         <div class="project-links">
-          ${project.links.map(link => `<a href="${link.url}" target="_blank" title="${link.label}">${link.icon}</a>`).join('')}
+          ${project.links.map(link => `<a href="${link.url}" target="_blank" rel="noopener" title="${link.label}" aria-label="${link.label} — ${project.title}">${link.icon}</a>`).join('')}
         </div>
       </div>
       <h3>${project.title}</h3>
@@ -423,7 +383,9 @@ function createSkills(skillsObj) {
 // Initialization
 document.addEventListener('DOMContentLoaded', () => {
   // Inject Content
-  document.getElementById('projectsGrid').innerHTML = portfolioData.tier1Projects.map(createProjectCard).join('');
+  document.getElementById('projectsGrid').innerHTML = [...portfolioData.tier1Projects]
+    .sort((a, b) => (a.featuredOrder || 99) - (b.featuredOrder || 99))
+    .map(createProjectCard).join('');
   document.getElementById('arcGrid').innerHTML = createARCGrid(portfolioData.arcAgi);
   document.getElementById('kaggleTable').innerHTML = createKaggleTable(portfolioData.kaggleCompetitions);
   document.getElementById('githubGrid').innerHTML = portfolioData.githubProjects.map(createGithubCard).join('');
@@ -433,8 +395,11 @@ document.addEventListener('DOMContentLoaded', () => {
   
   // Note: For community section I'm mirroring the contributions logic or we can add MLT/LucknowAI here
   const extraCommunity = [
-    { org: "Lucknow AI Labs", role: "Core Organizer", desc: "Fostering AI research and development community in Lucknow, India." },
-    { org: "Machine Learning Tokyo (MLT)", role: "Contributor", desc: "Participating in Japan's premier AI engineering community." }
+    { org: "Cohere Labs", role: "Open-Science Community Lead — Computer Vision · Feb 2025–Present", desc: "Lead the computer-vision sub-field, curate research talks, and mentor BIRDS researchers on experimental design, vision-language fine-tuning, and benchmark evaluation." },
+    { org: "Yannic Kilcher's ML Community", role: "Presenter & Research Contributor · Jan 2024–Present", desc: "Present computer-vision, generative-model, and interpretability paper discussions; contribute to an ARC visual-reasoning research group." },
+    { org: "TWiML (This Week in ML & AI)", role: "Research Contributor & Technical Community Lead · Sep 2020–Present", desc: "Lead weekly research sessions on Generative AI, multimodal models, and deployment; contribute to the TWIML-RAG open-source project and study cohorts." },
+    { org: "Machine Learning Tokyo (MLT)", role: "Research Contributor & Study Group Lead · Jul 2019–Jun 2023", desc: "Co-led CNN implementation and generative deep-learning cohorts, and organized paper dissections and study groups in ML mathematics and high-performance Python." },
+    { org: "Lucknow AI Labs", role: "Community Advisor & Core AI R&D Lead · Oct 2024–Present", desc: "Lead research reading groups and applied experiments across open-weight vision-language models, parameter-efficient adapters, and edge deployment." }
   ];
   document.getElementById('communityGrid').innerHTML = extraCommunity.map(createCommunityCard).join('');
   
