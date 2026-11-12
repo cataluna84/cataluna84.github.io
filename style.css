@@ -124,6 +124,12 @@ img { max-width: 100%; display: block; }
   line-height: 1.7;
 }
 
+#experience .career-summary {
+  width: 100%;
+  max-width: none;
+  text-align: justify;
+}
+
 .gradient-text {
   background: var(--accent-gradient);
   -webkit-background-clip: text;
@@ -452,8 +458,8 @@ img { max-width: 100%; display: block; }
 /* ===== About Section ===== */
 .about-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 3rem;
+  grid-template-columns: minmax(0, 1fr) minmax(230px, 260px);
+  gap: 2rem;
   align-items: start;
   margin-top: 2.5rem;
 }
@@ -470,11 +476,13 @@ img { max-width: 100%; display: block; }
 
 .about-highlights {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   gap: 1rem;
 }
 
 .highlight-card {
+  width: 100%;
+  max-width: 260px;
   padding: 1.25rem;
   border-radius: var(--card-radius);
   transition: all var(--transition-smooth);
@@ -741,6 +749,55 @@ img { max-width: 100%; display: block; }
   margin-top: 2.5rem;
 }
 
+.community-list {
+  margin-top: 2.5rem;
+  border-top: 1px solid var(--border-glass);
+}
+
+.community-entry {
+  display: grid;
+  grid-template-columns: minmax(220px, 0.9fr) minmax(0, 2fr);
+  gap: 2rem;
+  padding: 1.5rem 0;
+  border-bottom: 1px solid var(--border-glass);
+}
+
+.community-entry-heading h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+}
+
+.community-entry .role {
+  font-size: 0.8rem;
+  color: var(--accent-secondary);
+  font-weight: 500;
+}
+
+.community-entry-body p {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+.community-resource {
+  display: inline-block;
+  margin-top: 0.4rem;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.community-resources {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
+  margin-top: 0.5rem;
+}
+
+.community-resources .community-resource {
+  margin-top: 0;
+}
+
 .community-card {
   padding: 1.5rem;
   border-radius: var(--card-radius);
@@ -936,6 +993,7 @@ img { max-width: 100%; display: block; }
   .projects-grid { grid-template-columns: 1fr; }
   .about-grid { grid-template-columns: 1fr; }
   .community-grid { grid-template-columns: repeat(2, 1fr); }
+  .community-entry { grid-template-columns: minmax(180px, 0.8fr) minmax(0, 2fr); gap: 1.5rem; }
 }
 
 @media (max-width: 768px) {
@@ -959,6 +1017,7 @@ img { max-width: 100%; display: block; }
   .hero-stats { gap: 1.5rem; flex-wrap: wrap; }
   .about-highlights { grid-template-columns: 1fr; }
   .community-grid { grid-template-columns: 1fr; }
+  .community-entry { grid-template-columns: 1fr; gap: 0.65rem; }
   .research-grid { grid-template-columns: 1fr; }
   .hero-name { font-size: 2.25rem; }
 }

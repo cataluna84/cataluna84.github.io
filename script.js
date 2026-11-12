@@ -247,12 +247,21 @@ const portfolioData = {
     "Languages & Tools": ["Python", "C++", "uv", "Make", "Git", "Linux"]
   },
 
+  competencies: {
+    "Generative AI & Computer Vision": ["Diffusion Models", "GANs", "VAEs", "Controllable & Image-to-Image Generation", "Vision Transformers", "ResNet / ResNeXt / EfficientNet", "VLMs / MLLMs / CLIP", "Image Classification", "Object Detection", "Semantic & Instance Segmentation", "Visual Anomaly & Defect Detection", "Visual Similarity Learning"],
+    "Synthetic Data & Data-Efficient Learning": ["Synthetic Dataset & Rare-Event Generation", "Domain Randomization", "Sim2Real (CARLA, Isaac Sim, AirSim)", "Self-Supervised & Contrastive Learning", "Transfer & Few-Shot Learning", "Active & Weakly Supervised Learning", "PEFT / LoRA / QLoRA", "Mamba / State Space Models", "Graph Neural Networks", "PPO / SAC / DQN"],
+    "Model Monitoring, Robustness & MLOps": ["Input, Feature & Prediction Drift", "Domain Shift & OOD Detection", "Uncertainty & Confidence Calibration", "Controlled Ablations", "Threshold Optimization", "Reproducible Experiments", "TFX Pipelines & Schema Validation", "Weights & Biases", "Docker", "Linux & Git"],
+    "Edge Optimization, Compression & Kernels": ["TensorRT", "DeepStream SDK", "Knowledge Distillation", "Structured & Unstructured Pruning", "Dynamic Weight Sparsity", "PTQ & QAT (FP16 / INT8 / FP8 / INT4)", "Apple CoreML / ANE", "CUDA C/C++", "OpenAI Triton", "vLLM Prefill/Decode Serving", "FlashAttention"],
+    "3D Spatial AI, Robotics & Distributed Compute": ["Intel RealSense D435i RGB-D", "Point Cloud Registration", "Apple ARKit LiDAR & 3D Meshes", "MediaPipe 3D Pose Tracking", "ROS2 / Autoware", "AWS DeepRacer", "Google TPU Research Cloud v4/v5/v6", "TPU Builders Program", "PyTorch DDP / FSDP", "Megatron-LM", "Slurm"],
+    "Core Frameworks & Software Stacks": ["Python", "PyTorch", "Hugging Face Transformers / Diffusers / Accelerate", "JAX / Flax", "OpenCV", "NumPy", "Pandas", "Scikit-learn", "LangChain", "OpenAI Whisper", "C / C++", "Enterprise Java / J2EE", "AOSP & Linux Kernel"]
+  },
+
   experience: [
-    { role: "Founder, CEO & Principal AI Research Engineer", company: "OM Enterprises — AI Research & Engineering Labs", period: "Apr 2021 – Present", desc: "Direct research and engineering across robust computer vision, generative image and video systems, and interactive multimodal models. Focus on data-scarce settings, domain shift, reliable evaluation, and low-latency deployment.", bullets: ["Advise and collaborate on 50+ AI research papers, including experimental design, controlled ablations, systems scaling, and hardware/software trade-offs", "Build computer-vision and multimodal pipelines for industrial inspection, video analytics, healthcare, and robotics; account for data drift, illumination changes, confidence degradation, and out-of-distribution behavior", "Lead distributed training and evaluation on Google TPU Research Cloud and TPU Builder resources", "Develop high-throughput inference systems, custom GPU kernels, model compression pipelines, and low-latency multimodal speech systems", "Fine-tuned CLIP for satellite image and caption retrieval; placed third in the Hugging Face Flax/JAX Community Sprint"], tags: ["Research Engineering", "Generative AI", "Computer Vision", "Multimodal Systems"] },
-    { role: "Lead Consultant & Computer Vision Systems Engineer", company: "InfoBeans Technologies", period: "May 2017 – Mar 2021", desc: "Built real-time computer-vision systems for edge video inspection, generative imaging, and spatial AI.", bullets: ["Developed NVIDIA DeepStream and TensorRT pipelines for concurrent camera feeds, occupancy and anomaly detection, and license-plate recognition", "Trained image-to-image and style-transfer models; compressed models for Apple CoreML with reported inference below 25 ms", "Built synthetic simulation and Sim2Real experiments for autonomous and robotics applications", "Worked with Apple ARKit/LiDAR and Intel RealSense RGB-D data for 3D mesh, point-cloud, and human-pose pipelines", "Founded weekly Innovation Tuesday research seminars for engineering teams"], tags: ["Computer Vision", "DeepStream", "TensorRT", "Edge AI", "3D Vision"] },
-    { role: "Android Systems & OS Engineer", company: "Independent Systems Research", period: "Dec 2016 – Apr 2017", desc: "Built a customized Android OS from AOSP source, including Linux kernel compilation, cross-compilation toolchains, and hardware abstraction integration; also developed stereoscopic VR prototypes.", tags: ["AOSP", "Linux Kernel", "Android", "VR"] },
-    { role: "Java Systems Engineer & Consultant", company: "Broadleaf Commerce", period: "Jan 2016 – Nov 2016", desc: "Built enterprise e-commerce backend modules and improved database indexing, connection pooling, and transaction caching for high-concurrency workloads.", tags: ["Java", "Enterprise Systems", "Performance"] },
-    { role: "System Engineer", company: "Tata Consultancy Services", period: "May 2012 – Dec 2015", desc: "Built enterprise platforms, data migration services, and high-concurrency voice and ETL systems across TCS teams in Lucknow, Noida, and Hyderabad.", bullets: ["Architected Java batch schedulers, REST services, and relational schemas for HP ALM, ServiceNow, JIRA, and E-Assure", "Built Walgreens ESS-IVR modules and nightly pipelines streaming Avaya data into Oracle", "Recognized with Star of the Learners Group and Star of the Month (twice)"], tags: ["Java", "Spring", "REST APIs", "ETL", "Oracle"] },
+    { role: "Founder, CEO & Principal AI Research Engineer", company: "OM Enterprises — AI Research & Engineering Labs", period: "Apr 2021 – Present", desc: "Lead an independent research and engineering lab building robust computer-vision, generative image/video, and multimodal systems for industrial deployment, data-scarce settings, and domain shift.", bullets: ["Architected vision and multimodal pipelines for retail video analytics, defect detection, healthcare, and robotics, with monitoring for input drift, illumination changes, confidence degradation, and OOD failures", "Research projects: remote-sensing CLIP retrieval (Hugging Face Flax/JAX Sprint global 3rd place); Sherlock video/audio worklog generation; DistAya model compression (~60% smaller while retaining >94% downstream accuracy); mechanistic interpretability and PEFT drift analysis", "Engineered CUDA C++ and Triton kernels for attention, normalization, and activation operators; optimized vLLM prefill/decode serving on A100/H100 GPUs for 38% lower TTFT and 3.2× request throughput", "Built an Aya–Moshi full-duplex speech system with sub-180 ms streaming latency and Whisper-based audio retrieval RAG; led distributed training and evaluation on Google TPU Research Cloud v4/v5/v6", "Formulated a Deep Banach Space Kernels theoretical proposal for CoSubmitting Summer @ ICLR 2022"], tags: ["Generative AI", "Computer Vision", "Multimodal Systems", "Research Leadership", "CUDA / Triton", "TPU"] },
+    { role: "Lead Consultant & Computer Vision Systems Engineer", company: "InfoBeans Technologies", period: "May 2017 – Mar 2021", desc: "Delivered real-time edge vision, generative imaging, robotics simulation, and spatial AI systems.", bullets: ["Built custom C++/CUDA plugins and DeepStream/TensorRT pipelines for live RTSP camera inspection, occupancy and anomaly detection, and automated license-plate recognition", "Trained style-transfer and image-synthesis models in Lua/Torch; used pruning, distillation, and FP16 quantization to deploy on Apple CoreML at under 25 ms", "Developed synthetic-environment and Sim2Real perception/control experiments using CARLA, NVIDIA Isaac Sim, Microsoft AirSim, ROS2/Autoware, AWS DeepRacer, and DonkeyCar", "Reconstructed 3D meshes from Apple ARKit/LiDAR and built Intel RealSense D435i point-cloud registration and Google MediaPipe 3D pose/kinematics pipelines; selected to attend Apple WWDC for ARKit work", "Trained sequence classifiers on wearable EEG streams and founded the weekly Innovation Tuesday research seminars"], tags: ["Computer Vision", "DeepStream", "TensorRT", "CoreML", "Sim2Real", "3D Vision"] },
+    { role: "Android Systems & OS Engineer", company: "Independent Systems Research", period: "Dec 2016 – Apr 2017", desc: "Built a customized Android OS from AOSP source, including cross-compilation toolchains, Linux kernel builds, custom hardware abstraction layers, and background REST services. Also prototyped stereoscopic VR applications with Google Cardboard, Blender, and Unity.", tags: ["AOSP", "Linux Kernel", "Android", "VR", "Cross-Compilation"] },
+    { role: "Java Systems Engineer & Consultant", company: "Broadleaf Commerce", period: "Jan 2016 – Nov 2016", desc: "Built B2C e-commerce backend modules for order management, dynamic rules, and CMS; optimized database indexing, connection pooling, and multi-tier transaction caching for high-concurrency workloads.", tags: ["Java", "Broadleaf", "Enterprise Systems", "Performance"] },
+    { role: "System Engineer", company: "Tata Consultancy Services (TCS)", period: "May 2012 – Dec 2015", desc: "Delivered enterprise automation, data migration, voice processing, and ETL systems across teams in Lucknow, Noida, and Hyderabad.", bullets: ["Architected multithreaded Java batch schedulers, REST services, and relational schemas for HP ALM, ServiceNow, JIRA, and E-Assure using Spring MVC, Hibernate, and Jasig CAS", "Built Walgreens ESS-IVR voice modules and nightly distributed ETL pipelines streaming Avaya metrics into Oracle", "Received Star of the Learners Group and Star of the Month twice"], tags: ["Java", "Spring MVC", "Hibernate", "REST APIs", "ETL", "Oracle"] },
   ]
 };
 
@@ -337,8 +346,28 @@ function createCommunityCard(item) {
       <div class="icon">🤝</div>
       <h3>${item.org}</h3>
       <div class="role">${item.role}</div>
-      <p>${item.desc}</p>
+      <p>${item.desc}${item.link ? `<br><a href="${item.link}" target="_blank" rel="noopener">${item.linkLabel} ↗</a>` : ''}</p>
     </div>
+  `;
+}
+
+function createCommunityEntry(item) {
+  const resources = [
+    ...(item.link ? [{ url: item.link, label: item.linkLabel }] : []),
+    ...(item.links || [])
+  ];
+
+  return `
+    <article class="community-entry">
+      <div class="community-entry-heading">
+        <h3>${item.org}</h3>
+        <div class="role">${item.role}</div>
+      </div>
+      <div class="community-entry-body">
+        <p>${item.desc}</p>
+        ${resources.length ? `<div class="community-resources">${resources.map(resource => `<a class="community-resource" href="${resource.url}" target="_blank" rel="noopener">${resource.label} ↗</a>`).join('')}</div>` : ''}
+      </div>
+    </article>
   `;
 }
 
@@ -393,17 +422,27 @@ document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('hfGrid').innerHTML = portfolioData.hfModels.map(createHFCard).join('');
   document.getElementById('timeline').innerHTML = createTimeline(portfolioData.experience);
   
-  // Note: For community section I'm mirroring the contributions logic or we can add MLT/LucknowAI here
+  // Community and leadership roles summarized from the research resume.
   const extraCommunity = [
-    { org: "Cohere Labs", role: "Open-Science Community Lead — Computer Vision · Feb 2025–Present", desc: "Lead the computer-vision sub-field, curate research talks, and mentor BIRDS researchers on experimental design, vision-language fine-tuning, and benchmark evaluation." },
-    { org: "Yannic Kilcher's ML Community", role: "Presenter & Research Contributor · Jan 2024–Present", desc: "Present computer-vision, generative-model, and interpretability paper discussions; contribute to an ARC visual-reasoning research group." },
-    { org: "TWiML (This Week in ML & AI)", role: "Research Contributor & Technical Community Lead · Sep 2020–Present", desc: "Lead weekly research sessions on Generative AI, multimodal models, and deployment; contribute to the TWIML-RAG open-source project and study cohorts." },
-    { org: "Machine Learning Tokyo (MLT)", role: "Research Contributor & Study Group Lead · Jul 2019–Jun 2023", desc: "Co-led CNN implementation and generative deep-learning cohorts, and organized paper dissections and study groups in ML mathematics and high-performance Python." },
-    { org: "Lucknow AI Labs", role: "Community Advisor & Core AI R&D Lead · Oct 2024–Present", desc: "Lead research reading groups and applied experiments across open-weight vision-language models, parameter-efficient adapters, and edge deployment." }
+    { org: "OpenAI", role: "Codex Ambassador Program · Selected for an upcoming cohort", desc: "Onboarding details are forthcoming. Planned first contribution: a beginner-friendly “Build with Codex: Research to Production” workshop in Lucknow, taking a real problem through prototype, user feedback, and toward production, followed by a tutorial, reproducible repository, and workflow/testing recap. The intended audience is AI/ML developers, researchers, students, open-source contributors, and startup engineers across Lucknow and North India; sessions will be in English, with Hindi discussion where helpful. Past event experience includes Digital Domination 2.0, Avinya 2K26 at IIT Kanpur, Cohere Labs Computer Vision sessions, weekly TWIML meetups, and Hack-E-Awadh 2026. Also judged 10+ local AI/ML meetups in Uttar Pradesh and contributed across four teams during Cohere Labs Expedition TinyAya 2026. Public workflow streams show AI research engineering with Factory.ai and Claude Code.", links: [
+      { url: "https://www.youtube.com/live/YksjEXeB-RE?si=29o3SGvtllzBoG3r", label: "Ambassador introduction" },
+      { url: "https://www.youtube.com/live/UeHeCwnX5II?si=juC6Eg3Qgic-C5O2", label: "AI workflow livestream" },
+      { url: "https://lnkd.in/p/gT9uKmB5", label: "Digital Domination 2.0" },
+      { url: "https://lnkd.in/p/daTDXARt", label: "Avinya 2K26 at IIT Kanpur" },
+      { url: "https://lnkd.in/p/gCwbzMPA", label: "Cohere Labs CV sessions" },
+      { url: "https://lnkd.in/p/gpU_H3Y8", label: "Weekly TWIML meetup" },
+      { url: "https://lnkd.in/p/gGivp-Rf", label: "Hack-E-Awadh 2026" }
+    ] },
+    { org: "Cohere Labs", role: "Open-Science Community Lead (Computer Vision) · Feb 2025–Present", desc: "Lead the Computer Vision sub-field, refining research problems with international collaborators, designing rigorous ablations, and helping move prototypes toward production. Curate talks across Computer Vision, Efficiency, Reinforcement Learning, AI Agents, and Multimodal research, and mentor BIRDS researchers on experiment design, vision-language fine-tuning, and benchmark evaluation.", link: "https://sites.google.com/cohere.com/coherelabs-community/community-programs/computer-vision", linkLabel: "Computer Vision talks" },
+    { org: "Yannic Kilcher's Machine Learning Community", role: "Presenter & Research Contributor · Jan 2024–Present", desc: "Lead technical presentations for Daily Paper Discussions and Saturday live author panels on Computer Vision, diffusion and generative models, and mechanistic interpretability. Core contributor to the weekly ARC visual-reasoning group, exploring visual priors, program synthesis, few-shot test-time adaptation, and compositional generalization." },
+    { org: "TWiML (This Week in ML & AI)", role: "Research Contributor & Technical Community Lead · Sep 2020–Present", desc: "Lead Friday research sessions on Generative AI, multimodal VLM/VLAM research, and production trade-offs, plus Saturday Kaggle cohorts where participants earned 1 Silver and 2 Bronze medals across 17 competitions. Core contributor to TWIML-RAG; taught cohorts in Berkeley Deep Unsupervised Learning, NYU Deep Learning with PyTorch, TFX pipelines, Stanford CS224W, NLP, reinforcement learning, and Hands-On ML." },
+    { org: "Machine Learning Tokyo (MLT)", role: "Research Contributor & Study Group Lead · Jul 2019–Jun 2023", desc: "Co-led first-principles implementations of ResNet, ResNeXt, and EfficientNet; taught generative deep learning with VAEs, GANs, and diffusion precursors; and co-organized NeurIPS 2021 spotlight-paper discussions. Led cohorts in mathematics for machine learning and High Performance Python." },
+    { org: "Lucknow AI Labs", role: "Community Advisor & Core AI R&D Lead · Oct 2024–Present", desc: "Direct research reading groups and applied experiments on open-weight vision-language models, parameter-efficient adapters, and edge-deployment constraints.", link: "https://lucknowai.github.io/", linkLabel: "Lucknow AI Labs" }
   ];
-  document.getElementById('communityGrid').innerHTML = extraCommunity.map(createCommunityCard).join('');
+  document.getElementById('communityGrid').innerHTML = extraCommunity.map(createCommunityEntry).join('');
   
   document.getElementById('skillsWrapper').innerHTML = createSkills(portfolioData.skills);
+  document.getElementById('competenciesWrapper').innerHTML = createSkills(portfolioData.competencies);
   
   document.getElementById('blogGrid').innerHTML = portfolioData.blog.map(item => `
     <div class="research-card glass">
